@@ -783,7 +783,8 @@
             for (let [key, value] of formData.entries()) {
                 answers[key] = value;
             }
-            const additionalInfo = answers['additional-info'];
+            // Verifica y asigna un valor a additionalInfo para evitar `undefined`
+            const additionalInfo = answers['additional-info'] || '';
             delete answers['additional-info'];
 
             const prompt = `Actúa como un auditor de ciberseguridad experto en la norma ISO 27001, con un enfoque en pequeñas y medianas empresas (PYMES). Te han proporcionado las siguientes respuestas a una auditoría sobre Controles Generales de Tecnologías de la Información (CGTI). A partir de esta información, genera un informe detallado con recomendaciones claras y concisas.
